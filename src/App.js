@@ -9,7 +9,6 @@ function App() {
     text: 'Doctor Appointment',
     day: 'Feb 5th at 2:30pm',
     remainder: true
-    
 },
 {
     id: 2,
@@ -24,6 +23,13 @@ function App() {
     remainder: false
 }])
 
+const addtask=(object)=>{
+  const id=Math.floor(Math.random()*10000)+1;
+  const newtask={id, ...object}
+  setTasks([...tasks, newtask])
+  console.log(tasks,"tasks")
+}
+
 const deleteTask=(id)=>{
   setTasks(tasks.filter((task)=> task.id !==id))
 }
@@ -35,7 +41,7 @@ const toggeleReminder=(id)=>{
     <>
       <div className="container">
       <Header title="Task Tracker"/>
-      <AddTask/>
+      <AddTask onAdd={addtask}/>
       {tasks.length>0?<Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggeleReminder}/>:"No more task"}
       </div>
     </>
