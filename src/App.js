@@ -9,7 +9,6 @@ function App() {
     text: 'Doctor Appointment',
     day: 'Feb 5th at 2:30pm',
     remainder: true
-
     
 },
 {
